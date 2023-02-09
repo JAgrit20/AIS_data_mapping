@@ -14,4 +14,12 @@ class AIS_data_routes(models.Model):
     Ship_id = models.CharField(max_length=111)
     Latitude = models.CharField(max_length=111)
     Logitude = models.CharField(max_length=111)
+class AIS_data_report(models.Model):
+    id = models.CharField(max_length=111,primary_key=True)
+    RANK = models.CharField(max_length=111)
+    SHIPPING_COMPANY = models.CharField(max_length=111)
+    Num_of_ships = models.CharField(max_length=111)
+    CAPACITY = models.CharField(max_length=111)
+    URL     = models.TextField(blank=True, null = True)
+
 

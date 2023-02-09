@@ -17,13 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from route.views import showroute,showmap,home,reports  
+from route.views import showroute,showmap,home,reports,showreport,connect_ais_stream
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('showroute/',showroute,name='showroute'),
+    path('showreport/',showreport,name='showreport'),
     path('showmap/',showmap,name='showmap'),
     path('reports/',reports,name='reports'),
+    path('get_real_time_ships/',connect_ais_stream,name='get_real_time_ships'),
     path('',home,name='home'),
 
     ]
