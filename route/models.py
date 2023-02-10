@@ -21,5 +21,12 @@ class AIS_data_report(models.Model):
     Num_of_ships = models.CharField(max_length=111)
     CAPACITY = models.CharField(max_length=111)
     URL     = models.TextField(blank=True, null = True)
+class AIS_data_updates(models.Model):
+    id = models.CharField(max_length=111,primary_key=True)
+    mmsi = models.CharField(max_length=111,blank=True, null = True)
+    heading = models.CharField(max_length=111,blank=True, null = True)
+    shiptype = models.CharField(max_length=111,blank=True, null = True)
+    width = models.CharField(max_length=111,blank=True, null = True)
+    length     = models.CharField(max_length=111,blank=True, null = True)
 
 

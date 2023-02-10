@@ -2,7 +2,7 @@ import folium
 from django.shortcuts import render,redirect
 from . import getroute
 from django.db.models import Q
-from .models import AIS_data_routes,AIS_data_report
+from .models import AIS_data_routes,AIS_data_report,AIS_data_updates
 import asyncio
 import websockets
 import json
@@ -60,7 +60,8 @@ def showreport(request):
 
 def home(request):
     results = AIS_data_routes.objects.all()[:500].values();
-    context = {'mydata':results}
+    report = AIS_data_updates.objects.all()[:10].values();
+    context = {'mydata':results,'report':report}
     return render(request,'index.html', context)
 
 def reports(request):

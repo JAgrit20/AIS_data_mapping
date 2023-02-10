@@ -162,9 +162,19 @@
                         </div>
                     <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
                         <div class="card">
+                            <h5 class="card-header">Vessels Data</h5>
+                            <div class="card-body">
+                              <h5 class="card-title">3,88,012</h5>
+                              <p class="card-text">Jan 5, 2023 - Present</p>
+                              <p class="card-text text-success">4.6% increase since last month</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+                        <div class="card">
                             <h5 class="card-header">Reports Generated</h5>
                             <div class="card-body">
-                              <h5 class="card-title">21</h5>
+                              <h5 class="card-title">20</h5>
                               <p class="card-text">Jan 5, 2023 - Present</p>
                               <p class="card-text text-success">4.6% increase since last month</p>
                             </div>
@@ -182,59 +192,22 @@
                                         <thead>
                                           <tr>
                                             <th scope="col">Vessel Id</th>
-                                            <th scope="col">Cargo Company</th>
                                             <th scope="col">Goods Carrying</th>
-                                            <th scope="col">Last Updated Date</th>
-                                            <th scope="col"></th>
+                                            <th scope="col">Width</th>
+                                            <th scope="col">Length</th>
                                           </tr>
                                         </thead>
+
                                         <tbody>
+                                          {% for i in report %}
                                           <tr>
-                                            <th scope="row">17371705</th>
-                                            <td>Volt Premium Bootstrap 5 Dashboard</td>
-                                            <td>johndoe@gmail.com</td>
-
-                                            <td>Aug 31 2020</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
+                                            <th scope="row">{{i.mmsi}}</th>
+                                            <td>{{i.shiptype}}</td>
+                                            <td>{{i.width}}</td>
+                                            <td>{{i.length}}</td>
                                           </tr>
-                                          <tr>
-                                            <th scope="row">17370540</th>
-                                            <td>Pixel Pro Premium Bootstrap UI Kit</td>
-                                            <td>jacob.monroe@company.com</td>
-
-                                            <td>Aug 28 2020</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">17371705</th>
-                                            <td>Volt Premium Bootstrap 5 Dashboard</td>
-                                            <td>johndoe@gmail.com</td>
-
-                                            <td>Aug 31 2020</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">17370540</th>
-                                            <td>Pixel Pro Premium Bootstrap UI Kit</td>
-                                            <td>jacob.monroe@company.com</td>
-
-                                            <td>Aug 28 2020</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">17371705</th>
-                                            <td>Volt Premium Bootstrap 5 Dashboard</td>
-                                            <td>johndoe@gmail.com</td>
-                                            <td>Aug 31 2020</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">17370540</th>
-                                            <td>Pixel Pro Premium Bootstrap UI Kit</td>
-                                            <td>jacob.monroe@company.com</td>
-                                            <td>Aug 28 2020</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
+                                         {% endfor %}
+                                         
                                         </tbody>
                                       </table>
                                 </div>
@@ -244,7 +217,7 @@
                     </div>
                     <div class="col-12 col-xl-4">
                         <div class="card">
-                            <h5 class="card-header">Traffic last 6 months</h5>
+                            <h5 class="card-header">Category chart last 6 months</h5>
                             <div class="card-body">
                                 <div id="traffic-chart"></div>
                             </div>
@@ -279,10 +252,11 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script>
-        new Chartist.Line('#traffic-chart', {
-            labels: ['January', 'Februrary', 'March', 'April', 'May', 'June'],
+        new Chartist.Bar('#traffic-chart', {
+            labels: ['Cargo', 'Tanker', 'Fishing', 'Passenger', 'Tug'],
             series: [
-                [23000, 25000, 19000, 34000, 56000, 64000]
+            [190027, 78535, 25480, 17835, 10112]
+
             ]
             }, {
             low: 0,

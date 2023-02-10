@@ -173,14 +173,11 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script>
-        new Chartist.Line('#traffic-chart', {
-            labels: ['January', 'Februrary', 'March', 'April', 'May', 'June'],
-            series: [
-                [23000, 25000, 19000, 34000, 56000, 64000]
-            ]
-            }, {
-            low: 0,
-            showArea: true
+        new Chartist.Bar('#Category-chart', {
+            labels: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
+  series: [20, 60, 120, 200, 180, 20, 10]
+}, {
+  distributeSeries: true
         });
     </script>
 </body>
