@@ -63,6 +63,13 @@
             {% csrf_token %}
             <div class="form-group">
               <select class="form-control" name="selected_id">
+                <option value="636018517">636018517</option>
+                <option value="636018142">636018142</option>
+                <option value="316002974">316002974</option>
+                <option value="316038798">316038798</option>
+                <option value="316033206">316033206</option>
+                <option value="316002974">316002974</option>
+                <option value="248563000">248563000</option>
                 {% for obj in mydata %}
                 <option value="{{ obj.Ship_id }}">{{ obj.Ship_id }}</option>
                 {% endfor %}
