@@ -127,6 +127,66 @@
                 </nav>
                 <h1 class="h2">Report Page</h1>
 
+                <div class="container mt-5">
+                  <form method="post" action="/showreport/">
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="form-group col-md-4">
+                        <label for="dropdown1">Source:</label>
+                        <select id="dropdown1" name="dropdown1" class="form-control">
+                          <option value="Africa">Africa</option> 
+                          <option value="Australia">Australia</option>
+                          <option value="Dubai">Dubai</option>
+                          <option value="Europe">Europe</option>
+                          <option value="India">India</option>
+                          <option value="Srilanka">Srilanka</option>
+                          <option value="USA">USA</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="dropdown2">Destination:</label>
+                        <select id="dropdown2" name="dropdown2" class="form-control">
+                          <option value="Africa">Africa</option> 
+                          <option value="Australia">Australia</option>
+                          <option value="Dubai">Dubai</option>
+                          <option value="Europe">Europe</option>
+                          <option value="India">India</option>
+                          <option value="Srilanka">Srilanka</option>
+                          <option value="USA">USA</option>
+
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="dropdown3">Goods:</label>
+                        <select id="dropdown3" name="dropdown2" class="form-control">
+                          <option value="Perishable">Perishable</option>
+                          <option value="Non perishable">Non perishable</option>
+
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4 mb-2">
+                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label for="dropdown1">Source:</label>
+                    <h5>{{source_values}}</h5>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="dropdown2">Destination:</label>
+                    <h5>{{destination_values}}</h5>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="dropdown2">Type:</label>
+
+                 <h5>{{typee}}</h5>
+                    </select>
+                  </div>
+
+                </div>
 
                 <div class="container">
                     <div class="row justify-content-center">

@@ -9,6 +9,7 @@ import json
 from datetime import datetime, timezone
 import time
 from django.http import HttpResponse
+from urllib.parse import parse_qs   
 
 coordinates_list = []
 async def connect_ais_stream(request):
@@ -52,8 +53,42 @@ async def connect_ais_stream(request):
 def showmap(request): 
     return render(request,'showmap.html')
 def showreport(request):
-    ans = AIS_data_report.objects.all()
-    context = {'mydata':ans}
+
+
+    if(request.method=='POST'):
+        data = (request.body)
+        print("data")
+        print(data)
+
+        decoded_query_string = data.decode('utf-8')
+        parsed_data = parse_qs(decoded_query_string)
+
+        dropdown1 = parsed_data['dropdown1'][0]
+        dropdown2 = parsed_data['dropdown2']
+
+
+        source_values = [dropdown1]
+        destination_values = [dropdown2[0]]
+        typee = [dropdown2[1]]
+        
+        print(f"Dropdown 1: {source_values}")
+        print(f"Dropdown 2: {destination_values[0]}")
+        print(f"Dropdown 2: {typee[0]}")
+
+        ans = AIS_data_report.objects.filter( destination__in=destination_values,source__in=source_values )
+        # ans = AIS_data_report.objects.filter(source__in=source_values, destination__in=destination_values)
+
+        # ans = AIS_data_report.objects.filter(source=dropdown1, destination=dropdown2[0], type_of_item=dropdown2[1])
+
+            
+
+            # print(request.data)
+            # ans = AIS_data_report.objects.all()
+        context = {'mydata':ans,'source_values':source_values,'destination_values':destination_values,'typee':typee}
+    else: 
+        ans = AIS_data_report.objects.all()
+        context = {'mydata':ans}
+
  
 
     return render(request,'report.html',context)

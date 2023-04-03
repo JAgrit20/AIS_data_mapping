@@ -20,6 +20,9 @@ class AIS_data_report(models.Model):
     SHIPPING_COMPANY = models.CharField(max_length=111)
     Num_of_ships = models.CharField(max_length=111)
     CAPACITY = models.CharField(max_length=111)
+    source = models.CharField(max_length=111, null=True, blank= True)
+    destination = models.CharField(max_length=111 , null=True, blank= True)
+    type_of_item = models.CharField(max_length=111, null=True, blank= True)
     URL     = models.TextField(blank=True, null = True)
 class AIS_data_updates(models.Model):
     id = models.CharField(max_length=111,primary_key=True)
